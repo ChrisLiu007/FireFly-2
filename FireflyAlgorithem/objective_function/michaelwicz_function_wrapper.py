@@ -1,4 +1,4 @@
-from FireflyAlgorithem.objective_function.abstract_wrapper import AbstractWrapper
+from GitProject.FireFly.FireflyAlgorithem.objective_function.abstract_wrapper import AbstractWrapper
 from math import sin, pi
 
 class MichaelwiczFunctionWrapper(object):

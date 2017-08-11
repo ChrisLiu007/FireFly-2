@@ -1,8 +1,8 @@
 import copy
 from math import sqrt, exp
 import random
-from FireflyAlgorithem.objective_function.nonsmooth_multipeak_function import NonsmoothMultipeakFunctionWrapper
-from FireflyAlgorithem.objective_function.michaelwicz_function_wrapper import MichaelwiczFunctionWrapper
+from GitProject.FireFly.FireflyAlgorithem.objective_function.nonsmooth_multipeak_function import NonsmoothMultipeakFunctionWrapper
+from GitProject.FireFly.FireflyAlgorithem.objective_function.michaelwicz_function_wrapper import MichaelwiczFunctionWrapper
 
 class FA(object):
 
@@ -69,14 +69,15 @@ class FA(object):
         # return the location (decision_variable) of the best firefly and the light intesity (objective_function) of the best firefly
 
         self.__initialize_fireflies(number_of_fireflies)
-        alpha_damp = 0.98
+        #alpha_damp = 0.98
         for generation in range(max_generation):
 
             for firefly in self.__fireflies:
                 firefly.update_light_intensity()
 
+
             self.__move_fireflies(randomization_parameter_alpha, absorption_coefficient_gamma)
-            randomization_parameter_alpha= randomization_parameter_alpha * alpha_damp
+
 
 
         solution_firefly = self.__select_best_firefly_by_light_intensity(self.__fireflies)
@@ -118,9 +119,11 @@ class FA(object):
     def __move_fireflies(self, randomization_parameter_alpha, absorption_coefficient_gamma):
         #5 move firfly accourding to the equation
         # fill in "new_location_coordinate" which is for updating the fireflies move (move formula)
+       # alpha_damp = 0.98
         delta=[]
         e = []
         attractiveness_beta_at_distance_0 = 1
+
         for variable_index in range(self.number_of_variables):
             delta.append(0.05 * (self.objective_function.maximum_decision_variable_values()[variable_index] - self.objective_function.minimum_decision_variable_values()[variable_index]))
             e.append(delta[variable_index] * random.random())
@@ -145,7 +148,7 @@ class FA(object):
                     for variable_index in range(self.number_of_variables):
                         new_location_coordinate = firefly_i.fireflies_location[variable_index] * (1 - attractiveness_beta) \
                                                   + firefly_j.fireflies_location[variable_index] * attractiveness_beta \
-                                                  + randomization_parameter_alpha * e[variable_index]
+                                                  + randomization_parameter_alpha * random.random() #e[variable_index]
                         new_location_coordinate = self.__constrain_within_range(new_location_coordinate, variable_index)
 
                         firefly_i.fireflies_location[variable_index] = new_location_coordinate
@@ -182,7 +185,7 @@ class FA(object):
             square_of_distance = (firefly_1.fireflies_location[variable_index] - firefly_2.fireflies_location[variable_index])**2
             sum_of_squares_of_distance += square_of_distance
 
-        return (sqrt(sum_of_squares_of_distance))/dmax
+        return sqrt(sum_of_squares_of_distance)
 
 if __name__ == '__main__':
     nonsmooth_multipeak_function_wrapper = NonsmoothMultipeakFunctionWrapper()
@@ -194,9 +197,9 @@ if __name__ == '__main__':
 
     firefly_algorithm = FA( michaelwicz_function_wrapper, number_of_variables, objective)
 
-    number_of_fireflies = 40
+    number_of_fireflies = 6
     maximun_generation = 10
-    randomization_parameter_alpha = 0.2
+    randomization_parameter_alpha = 0.8
     absorption_coefficient_gamma = 1.0
 
     result = firefly_algorithm.search(number_of_fireflies=number_of_fireflies, max_generation= maximun_generation,

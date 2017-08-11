@@ -1,10 +1,10 @@
 __author__ = 'hyw356'
-import re
+import math,re
 from numpy import matlib
 import numpy
-from untitled.michaelwicz_function import Michaelwicz_function
-from untitled.second import second
-from TestFire.FFA import FFA
+from GitProject.FireFly.untitled.michaelwicz_function import Michaelwicz_function
+from GitProject.FireFly.untitled.second import second
+#from TestFire.FFA import FFA
 My_list= []
 
 for member in dir(re):
@@ -14,27 +14,30 @@ for member in dir(re):
 
 #print sorted(My_list)
 MF= Michaelwicz_function()
-print ("the result",MF.compute([.5,.6],2))
+#print ("the result",MF.compute([.5,.6],2))
 x = numpy.random.uniform(0,1,4)
 xx = numpy.sort(x)
 y = numpy.argsort(x)
-print (x)
-print("xx",xx)
-print(y)
+#print (x)
+#print("xx",xx)
+#print(y)
 x= x[y]
-print(x)
+#print(x)
 xxx = numpy.random.uniform(0,1,4)
-print(xxx)
+numpy.random.seed()
+print(math.exp(.5698))
 xxx = xxx[y]
-print(xxx)
+#print(math.cos(.5698))
 scale = numpy.ones(2) * abs(4 - 0)
-print(scale)
+#print(scale)
 a=[[1,2],[3,4]]
 b=[[11,3],[13,14]]
-print(numpy.multiply(a,b))
-print(numpy.random.uniform(0,1,(2,2)))
-print(numpy.clip(b, 0, 4))
-#s= second(4,10,2)
+#print(numpy.multiply(a,b))
+#print(numpy.random.uniform(0,1,(2,2)))
+#print(numpy.clip(b, 0, 4))
+#print("___________________________________________________-")
+s= second(40,10,2)
+print("___________________________________________________-")
 #print (s)
 #print ("the result",MF.compute([.5,.6],2))
 valuesa = numpy.random.uniform(1,10,(5,2))
@@ -42,12 +45,12 @@ valuesb = numpy.random.uniform(1,10,(5,2))
 for i in range(3):
     y=numpy.random.uniform(0, 1, (1))
     z = numpy.matlib.repmat(y,i,2)
-print("z=",z)
+#print("z=",z)
 #for i in range (3):
  #   print("i=",z[i])
 
-print (valuesa)
-print (valuesb)
+#print (valuesa)
+#print (valuesb)
 #print(numpy.where(valuesa>valuesb))
 
 #for x in numpy.nditer(valuesb):
@@ -64,17 +67,32 @@ for i in range (f):
         #F= F.append(x[i])
         #if numpy.greater(valuesa[i], valuesb[j]):
 
-print("x=" ,x)
-print("F=" ,F)
-
-print(valuesb[valuesb > valuesa])
+#print("x=" ,x)
+#print("F=" ,F)
+dimension =2
+no_fireflies =5
+fireflies_location = numpy.random.uniform(0, 1, (no_fireflies, dimension)) * (4 - 0) + 0
+fireflies = numpy.zeros(no_fireflies)
+Light_intensity = numpy.zeros(no_fireflies)
+#print(valuesb[valuesb > valuesa])
 if -7.78739477403e-35 < -1.18094111732e-12:
-    print("true")
-for i in range (5):
-    for j in range(5):
-        values = numpy.append(valuesb,valuesa)
+#    print("true")
 
-print("value")
+#for i in range (no_fireflies):
+    for j in range(no_fireflies):
+        #print("Light_intensity", Light_intensity)
+        #print("fireflies_location", fireflies_location)
+        for i in range(0, no_fireflies):
+            fireflies[i] = MF.compute(fireflies_location[i, :], dimension)
+            Light_intensity[i] = fireflies[i]
+#print("Light_intensity",Light_intensity)
+#print("fireflies_location",fireflies_location)
+
+
+
+
+
+#print("value")
 class Algorithm:
 
 
