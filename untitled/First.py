@@ -2,8 +2,8 @@ __author__ = 'hyw356'
 import math,re
 from numpy import matlib
 import numpy
-from GitProject.FireFly.untitled.michaelwicz_function import Michaelwicz_function
-from GitProject.FireFly.untitled.second import second
+from untitled.michaelwicz_function import Michaelwicz_function
+from untitled.second import second
 #from TestFire.FFA import FFA
 My_list= []
 
@@ -86,7 +86,7 @@ if -7.78739477403e-35 < -1.18094111732e-12:
             fireflies[i] = MF.compute(fireflies_location[i, :], dimension)
             Light_intensity[i] = fireflies[i]
 #print("Light_intensity",Light_intensity)
-#print("fireflies_location",fireflies_location)
+print("fireflies_location",numpy.clip([2,30],-20,20))
 
 
 

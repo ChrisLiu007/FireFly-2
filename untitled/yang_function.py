@@ -20,9 +20,6 @@ class Yang_Function:
             Z1 = Z1 *Z
 
         FF= (math.exp(X1) - (2*math.exp(Y1))) * Z1
-        L1 = math.exp(- (decision_variable[0]/a)**10 - (decision_variable[1]/a)**10)
-        L2 = 2 * math.exp( - (decision_variable[0] - 0)**2 - (decision_variable[1] - 0)**2)
-        L3 = (math.cos(decision_variable[0]))**2 * (math.cos(decision_variable[1]))**2
-        F= ( L1 - L2) * L3
-        return F
+
+        return FF
 
