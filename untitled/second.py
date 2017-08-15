@@ -2,10 +2,10 @@ __author__ = 'hyw356'
 
 import numpy
 from math import exp, pi, sqrt, sin, floor
-from untitled.michaelwicz_function import Michaelwicz_function
-from untitled.yang_function import Yang_Function
-from untitled.Rosenbrock_function import Rosenbrock_function
-
+from GitProject.FireFly.untitled.michaelwicz_function import Michaelwicz_function
+from GitProject.FireFly.untitled.yang_function import Yang_Function
+from GitProject.FireFly.untitled.Rosenbrock_function import Rosenbrock_function
+from GitProject.FireFly.untitled.DeJong_function import DeJong_function
 
 def second(no_fireflies, maxGeneration, dimension):
     # General parameters
@@ -17,12 +17,12 @@ def second(no_fireflies, maxGeneration, dimension):
     alpha_damp = 0.98
 
     # objective function valu parameters
-    Ub = 10
-    Lb = -5
+    Ub = 5.12
+    Lb = -5.12
 
     delta = 0.05 * (Ub - Lb)
 # Objective function
-    objective_function = Rosenbrock_function()
+    objective_function = DeJong_function()
     dmax = (Ub - Lb) * sqrt(dimension)
 #Initialization
 

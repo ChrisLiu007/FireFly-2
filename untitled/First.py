@@ -2,8 +2,8 @@ __author__ = 'hyw356'
 import math,re
 from numpy import matlib
 import numpy
-from untitled.michaelwicz_function import Michaelwicz_function
-from untitled.second import second
+from GitProject.FireFly.untitled.michaelwicz_function import Michaelwicz_function
+from GitProject.FireFly.untitled.second import second
 #from TestFire.FFA import FFA
 My_list= []
 
@@ -25,7 +25,7 @@ x= x[y]
 #print(x)
 xxx = numpy.random.uniform(0,1,4)
 numpy.random.seed()
-print(math.exp(.5698))
+#print(math.exp(.5698))
 xxx = xxx[y]
 #print(math.cos(.5698))
 scale = numpy.ones(2) * abs(4 - 0)
@@ -36,7 +36,7 @@ b=[[11,3],[13,14]]
 #print(numpy.random.uniform(0,1,(2,2)))
 #print(numpy.clip(b, 0, 4))
 #print("___________________________________________________-")
-s= second(40,10,2)
+s= second(40,10,256)
 print("___________________________________________________-")
 #print (s)
 #print ("the result",MF.compute([.5,.6],2))
@@ -86,7 +86,7 @@ if -7.78739477403e-35 < -1.18094111732e-12:
             fireflies[i] = MF.compute(fireflies_location[i, :], dimension)
             Light_intensity[i] = fireflies[i]
 #print("Light_intensity",Light_intensity)
-print("fireflies_location",numpy.clip([2,30],-20,20))
+#print("fireflies_location",numpy.clip([2,30],-20,20))
 
 
 
